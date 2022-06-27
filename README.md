@@ -1,4 +1,5 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-c66648af7eb3fe8bc4f294546bfd86ef473780cde1dea487d3c4ff354943c9ae.svg)](https://classroom.github.com/online_ide?assignment_repo_id=8039585&assignment_repo_type=AssignmentRepo)
+
 # React Redux Firebase Starter
 
 ## Getting Started
@@ -45,11 +46,11 @@ Update your progress by checking off the tasks for each sprint. We will **not** 
 
 ### Sprint 1
 
-- [ ] Get app approved (DM Scott for approval)
+- [x] Get app approved (DM Scott for approval)
   - [ ] Add project description to bottom of this page
-- [ ] Create mockups (physical paper, low-fi)
-  - [ ] Attach mockups to bottom of this page
-- [ ] Define scope (DM Scott for approval)
+- [x] Create mockups (physical paper, low-fi)
+  - [x] Attach mockups to bottom of this page
+- [x] Define scope (DM Scott for approval)
   - [ ] Define milestones for each sprint
   - [ ] Define final deliverable for v1
 - [ ] App must
@@ -85,8 +86,8 @@ Update your progress by checking off the tasks for each sprint. We will **not** 
 
 ### Mockups
 
-[*Replace me with mockups*]
-
-| ![Benjamin Bannekat](https://octodex.github.com/images/bannekat.png) | ![Benjamin Bannekat](https://octodex.github.com/images/bannekat.png) |
-|----------------------------------------------------------------------|----------------------------------------------------------------------|
-| ![Benjamin Bannekat](https://octodex.github.com/images/bannekat.png) | ![Benjamin Bannekat](https://octodex.github.com/images/bannekat.png) |
+| ![Landing Page Wireframe](https://github.com/Scott-Coates-Org/solo-project-msunji/blob/main/public/images/mockups/Mockup_Landing.jpg?raw=true)   | ![Login Wireframe](https://github.com/Scott-Coates-Org/solo-project-msunji/blob/main/public/images/mockups/Mockup_Login.jpg?raw=true)                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ![Sign Up Wireframe](https://github.com/Scott-Coates-Org/solo-project-msunji/blob/main/public/images/mockups/Mockup_SignUp.jpg?raw=true)         | ![Landing Page Wireframe](https://github.com/Scott-Coates-Org/solo-project-msunji/blob/main/public/images/mockups/Mockup_SubmitURL.jpg?raw=true)         |
+| -------------                                                                                                                                    | -------------                                                                                                                                            |
+| ![Generate a Palette](https://github.com/Scott-Coates-Org/solo-project-msunji/blob/main/public/images/mockups/Mockup_LoadingScreen.jpg?raw=true) | ![Landing Page Wireframe](https://github.com/Scott-Coates-Org/solo-project-msunji/blob/main/public/images/mockups/Mockup_GeneratedPalettes.jpg?raw=true) |
