@@ -7,7 +7,9 @@ const GlobalStyle = createGlobalStyle`
   :root {
     --mustard: #ffc300;
     --black: #030A04;
+    --blue-grey-light: #E1ECF4;
     --blue-dark: #010d30;
+    --grey: #848d93;
   }
   body {
     font-family: 'Poppins', sans-serif;
