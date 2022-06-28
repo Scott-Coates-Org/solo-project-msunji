@@ -1,3 +1,4 @@
+import breakpoints from 'styles/breakpoints';
 import styled from 'styled-components';
 import { FormGroup, FormLabel, FormInput } from 'components/form/Form';
 import Button from 'components/button/Button';
@@ -12,20 +13,28 @@ import { StyledFirebaseAuth } from 'react-firebaseui';
 const LoginFormContainer = styled.div`
   height: 100vh;
   display: grid;
-  grid-template-columns: 2fr 3fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: 200px auto;
 
   .login-pattern {
     background: var(--mustard);
     background-image: url(${LoginPattern});
+    background-size: cover;
   }
   .login-form {
-    width: 55%;
-    max-width: 600px;
+    background-color: var(--white);
+    width: 80%;
+    max-width: 400px;
     margin: auto;
 
     &__text {
       margin-bottom: 3rem;
     }
+  }
+
+  @media screen and (min-width: ${breakpoints.sm}) {
+    grid-template-columns: 2fr 3fr;
+    grid-template-rows: 1fr;
   }
 `;
 
@@ -33,12 +42,10 @@ const FormDivider = styled.div`
   text-transform: uppercase;
   font-size: 0.9rem;
   margin: 0.8rem 0;
-  
   p {
     display: flex;
     align-items: center;
     color: var(--grey);
-  
     &:before {
       content: '';
       background:var(--grey);
@@ -135,7 +142,7 @@ function LoginForm(props) {
         // The firebase.auth.AuthCredential type that was used.
         var credential = error.credential;
         console.error(error);
-        // alert(error);
+        alert(error);
         // ...
       });
   };
@@ -180,63 +187,21 @@ function LoginForm(props) {
             id="email"
             {...register('email', { required: 'A valid email is required.' })}
           ></FormInput>
-          <Button onClick={handleEmailLogin}>Sign In</Button>
+          <Button type="default" onClick={handleEmailLogin}>
+            Sign In
+          </Button>
         </FormGroup>
         <FormDivider>
           <p>Or</p>
         </FormDivider>
         <div>
-          <Button onClick={handleGoogleLogin}>
+          <Button type="brand" onClick={handleGoogleLogin}>
             <FontAwesomeIcon icon={faGoogle} className="mr-lg-1" />
             Continue with Google
           </Button>
         </div>
       </form>
     </>
-
-    // <Form>
-    //   <FormGroup>
-    //     <p className="small text-left text-muted font-weight-light">
-    //       By proceeding, you are agreeing to the {terms} and {privacy}.
-    //     </p>
-    //   </FormGroup>
-    //   <Row form>
-    //     <Col md={6}>
-    //       <FormGroup>
-    //         {/*   <Label for="about.firstName">First Name</Label>
-    //         <Input type="text" /> */}
-    //         <Button
-    //           className="btn-block btn-light d-flex flex-row justify-content-around align-items-center"
-    //           onClick={handleGoogleLogin}
-    //         >
-    //           <FontAwesomeIcon icon={faGoogle} className="mr-lg-1" />
-    //           Continue with Google
-    //         </Button>
-    //       </FormGroup>
-    //     </Col>
-    //     <Col md={6}>
-    //       <FormGroup>
-    //         {/* for some reason btn-primary does not work? */}
-    //         <Button
-    //           className="btn-block d-flex flex-row justify-content-around align-items-center"
-    //           color="primary"
-    //           onClick={handleFacebookLogin}
-    //         >
-    //           <FontAwesomeIcon icon={faFacebook} />
-    //           Continue with Facebook
-    //         </Button>
-    //       </FormGroup>
-    //     </Col>
-    //   </Row>
-    //   <p className="small text-center font-weight-light">or</p>
-    //   <FormGroup>
-    //     <p className="small text-center text-muted font-weight-light">
-    //       <a href="#" onClick={handleEmailLogin}>
-    //         Login with email address.
-    //       </a>
-    //     </p>
-    //   </FormGroup>
-    // </Form>
   );
 
   return retVal;
