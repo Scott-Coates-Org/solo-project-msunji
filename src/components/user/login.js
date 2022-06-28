@@ -1,8 +1,67 @@
+import styled from 'styled-components';
+import { FormGroup, FormLabel, FormInput } from 'components/form/Form';
+import Button from 'components/button/Button';
+import LoginPattern from 'assets/images/Linth.svg';
+import { useForm } from 'react-hook-form';
 import { useAuth } from './auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { useEffect, useState } from 'react';
 import { StyledFirebaseAuth } from 'react-firebaseui';
+
+const LoginFormContainer = styled.div`
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+
+  .login-pattern {
+    background: var(--mustard);
+    background-image: url(${LoginPattern});
+  }
+  .login-form {
+    width: 55%;
+    max-width: 600px;
+    margin: auto;
+
+    &__text {
+      margin-bottom: 3rem;
+    }
+  }
+`;
+
+const FormDivider = styled.div`
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  margin: 0.8rem 0;
+  
+  p {
+    display: flex;
+    align-items: center;
+    color: var(--grey);
+  
+    &:before {
+      content: '';
+      background:var(--grey);
+      height: 1px;
+      top: 50%;
+      left: 0;
+      flex: 1 0 0%;
+      margin-right: 1rem;
+    }
+
+    &:after {
+      content: '';
+      flex: 1 0 0%;
+      background: var(--grey);
+      height: 1px;
+      top: 50%;
+      left: 0;
+      margin-left: 1rem;
+    }
+  }
+
+
+`;
 
 const componentLoginFroms = {
   login: LoginForm,
@@ -27,25 +86,28 @@ export default function Login(props) {
 
   const retVal = (
     /* todo - wrap in layout container */
-    <p>test</p>
+    <LoginFormContainer>
+      <div className="login-pattern" />
+      <div className="login-form">
+        <div className="login-form__text">
+          <h1>Hello!</h1>
+          <p>Get started by signing in with an existing account.</p>
+        </div>
 
-    // <div className="container-lg container-fluid mt-lg-5">
-    //   <div className="row pt-lg-5">
-    //     <div className="col-md-3 offset-md-2">
-    //       <h3 className="text-primary">Log in or create an account</h3>
-    //       <p>Quickly get started by signing in using your existing accounts.</p>
-    //     </div>
-    //     <div className="col-md-6">
-    //       <Component {...props} setForm={setForm} />
-    //     </div>
-    //   </div>
-    // </div>
+        <Component {...props} setForm={setForm} />
+      </div>
+    </LoginFormContainer>
   );
 
   return retVal;
 }
 
 function LoginForm(props) {
+  const {
+    handleSubmit,
+    formState: { errors },
+    register,
+  } = useForm();
   const { firebase, setForm } = props;
 
   // right now, the oauth form shows a firebae domain.
@@ -73,7 +135,7 @@ function LoginForm(props) {
         // The firebase.auth.AuthCredential type that was used.
         var credential = error.credential;
         console.error(error);
-        alert(error);
+        // alert(error);
         // ...
       });
   };
@@ -108,7 +170,30 @@ function LoginForm(props) {
   );
 
   const retVal = (
-    <p>test</p>
+    <>
+      <form>
+        <FormGroup fullWidth>
+          <FormLabel htmlFor="email">Email Address</FormLabel>
+          <FormInput
+            type="email"
+            placeholder="Your Email"
+            id="email"
+            {...register('email', { required: 'A valid email is required.' })}
+          ></FormInput>
+          <Button onClick={handleEmailLogin}>Sign In</Button>
+        </FormGroup>
+        <FormDivider>
+          <p>Or</p>
+        </FormDivider>
+        <div>
+          <Button onClick={handleGoogleLogin}>
+            <FontAwesomeIcon icon={faGoogle} className="mr-lg-1" />
+            Continue with Google
+          </Button>
+        </div>
+      </form>
+    </>
+
     // <Form>
     //   <FormGroup>
     //     <p className="small text-left text-muted font-weight-light">
