@@ -1,22 +1,30 @@
+import themeColours from './themeColours';
 import { createGlobalStyle } from 'styled-components';
+
 import reset from 'styled-reset';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
 
   :root {
-    --mustard: #ffc300;
-    --black: #030A04;
-    --blue-grey-light: #E1ECF4;
-    --blue-dark: #010d30;
-    --grey: #848d93;
+    --mustard: ${themeColours.mustard};
+    --black:  ${themeColours.black};
+    --blue: ${themeColours.blue};
+    --blue-grey-light:  ${themeColours.blueGreyLight};
+    --blue-dark:  ${themeColours.blueDark};
+    --grey:  ${themeColours.grey};
+  }
+
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   body {
     font-family: 'Poppins', sans-serif;
     height: 100vh;
     width: 100%;
     font-size: 16px/1.6;
-    color: var(--blue-dark);
+    color: var(--black);
   }
   h1, h2, h3 {
     font-weight: bold;
