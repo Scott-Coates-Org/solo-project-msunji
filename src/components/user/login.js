@@ -111,6 +111,7 @@ function LoginForm(props) {
   );
 
   const retVal = (
+    <p>test</p>
     // <Form>
     //   <FormGroup>
     //     <p className="small text-left text-muted font-weight-light">
