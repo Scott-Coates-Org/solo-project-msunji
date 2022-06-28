@@ -44,5 +44,7 @@
     "not op_mini all"
   ],
   "devDependencies": {},
-  "eslintConfig": {}
+  "eslintConfig": {
+    "extends": "react-app"
+  }
 }
