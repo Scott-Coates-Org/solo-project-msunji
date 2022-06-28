@@ -1,4 +1,15 @@
+import themeColours from 'styles/themeColours';
 import styled from 'styled-components';
+
+const buttonColours = {
+  default: themeColours.blueDark,
+  brand: themeColours.blue,
+};
+
+const buttonTextColours = {
+  default: themeColours.white,
+  brand: themeColours.black,
+};
 
 const StyledButton = styled.button`
   border: none;
@@ -7,14 +18,16 @@ const StyledButton = styled.button`
   width: 100%;
   display: flex;
   justify-content: center;
-
+  background-color: ${({ type }) => buttonColours[type]};
+  font-weight: bold;
+  color: ${({ type }) => buttonTextColours[type]};
   svg {
     margin-right: 5px;
   }
 `;
 
-const Button = ({ children }) => {
-  return <StyledButton>{children}</StyledButton>;
+const Button = ({ type, children }) => {
+  return <StyledButton type={type}>{children}</StyledButton>;
 };
 
 export default Button;
