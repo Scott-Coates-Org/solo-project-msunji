@@ -1,4 +1,5 @@
-import { Grommet } from 'grommet';
+import 'styles/globalStyles.css';
+import Layout from 'styles/layout';
 import Home from 'components/home';
 import { AuthProvider, useAuth } from 'components/user/auth';
 import Login from 'components/user/login';
@@ -45,19 +46,8 @@ function App() {
     dispatch(getDataSuccess(userData));
   };
 
-  const theme = {
-    global: {
-      font: {
-        family: 'Roboto',
-        size: '18px',
-        height: '20px',
-        color: 'red',
-      },
-    },
-  };
-
   const appElement = (
-    <Grommet theme={theme}>
+    <Layout>
       <ErrorBoundary>
         <AuthProvider onLogin={storeUserData}>
           <Router history={history}>
@@ -81,7 +71,7 @@ function App() {
           </Router>
         </AuthProvider>
       </ErrorBoundary>
-    </Grommet>
+    </Layout>
   );
 
   return appElement;
