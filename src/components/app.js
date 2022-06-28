@@ -1,3 +1,4 @@
+import { Grommet } from 'grommet';
 import Home from 'components/home';
 import { AuthProvider, useAuth } from 'components/user/auth';
 import Login from 'components/user/login';
@@ -44,30 +45,43 @@ function App() {
     dispatch(getDataSuccess(userData));
   };
 
-  const appElement = (
-    <ErrorBoundary>
-      <AuthProvider onLogin={storeUserData}>
-        <Router history={history}>
-          <Switch>
-            <Route
-              path="/login"
-              render={(routeProps) => (
-                <Login {...routeProps} {...props} firebase={firebase} />
-              )}
-            />
-            <Route
-              path="/logout"
-              render={(routeProps) => (
-                <Logout {...routeProps} {...props} firebase={firebase} />
-              )}
-            />
+  const theme = {
+    global: {
+      font: {
+        family: 'Roboto',
+        size: '18px',
+        height: '20px',
+        color: 'red',
+      },
+    },
+  };
 
-            {/* this must be on the bottom */}
-            <ProtectedRoute path="/" component={Home} {...props} />
-          </Switch>
-        </Router>
-      </AuthProvider>
-    </ErrorBoundary>
+  const appElement = (
+    <Grommet theme={theme}>
+      <ErrorBoundary>
+        <AuthProvider onLogin={storeUserData}>
+          <Router history={history}>
+            <Switch>
+              <Route
+                path="/login"
+                render={(routeProps) => (
+                  <Login {...routeProps} {...props} firebase={firebase} />
+                )}
+              />
+              <Route
+                path="/logout"
+                render={(routeProps) => (
+                  <Logout {...routeProps} {...props} firebase={firebase} />
+                )}
+              />
+
+              {/* this must be on the bottom */}
+              <ProtectedRoute path="/" component={Home} {...props} />
+            </Switch>
+          </Router>
+        </AuthProvider>
+      </ErrorBoundary>
+    </Grommet>
   );
 
   return appElement;
