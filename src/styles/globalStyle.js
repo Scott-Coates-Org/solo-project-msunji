@@ -4,11 +4,17 @@ import reset from 'styled-reset';
 const GlobalStyle = createGlobalStyle`
   ${reset}
 
+  :root {
+    --mustard: #ffc300;
+    --black: #030A04;
+    --blue-dark: #010d30;
+  }
   body {
     font-family: 'Poppins', sans-serif;
     height: 100vh;
     width: 100%;
     font-size: 16px/1.6;
+    color: var(--blue-dark);
   }
   h1, h2, h3 {
     font-weight: bold;
