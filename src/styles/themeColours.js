@@ -6,6 +6,7 @@ const themeColours = {
   blueGreyLight: '#E1ECF4',
   blueDark: '#2F4858',
   grey: '#848d93',
+  orange: '#F26419',
 };
 
 export default themeColours;
