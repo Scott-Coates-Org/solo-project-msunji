@@ -20,10 +20,12 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
   }
   body {
+    margin: 0;
     font-family: 'Poppins', sans-serif;
     height: 100vh;
     width: 100%;
-    font-size: 16px/1.6;
+    font-size: 16px;
+    line-height: 1.6;
     color: var(--black);
   }
   h1, h2, h3 {
@@ -31,6 +33,7 @@ const GlobalStyle = createGlobalStyle`
   }
   h1 {
     font-size: 5.06em;
+    font-size: clamp(2.5rem, -0.7rem + 10.24vw, 5.06rem);
     line-height: 1.28em;
     padding-top: 0.296em;
     margin-bottom: 0.0247em;
