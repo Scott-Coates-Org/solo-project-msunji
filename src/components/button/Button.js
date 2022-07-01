@@ -24,10 +24,17 @@ const StyledButton = styled.button`
   svg {
     margin-right: 5px;
   }
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
-const Button = ({ type, children }) => {
-  return <StyledButton type={type}>{children}</StyledButton>;
+const Button = ({ type, children, handleOnClick }) => {
+  return (
+    <StyledButton type={type} onClick={handleOnClick}>
+      {children}
+    </StyledButton>
+  );
 };
 
 export default Button;
