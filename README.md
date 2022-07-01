@@ -1,44 +1,12 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-c66648af7eb3fe8bc4f294546bfd86ef473780cde1dea487d3c4ff354943c9ae.svg)](https://classroom.github.com/online_ide?assignment_repo_id=8039585&assignment_repo_type=AssignmentRepo)
 
-# React Redux Firebase Starter
+# Kulay - A Colour Palette Generator
 
-## Getting Started
+## Project Overview
 
-1. Install yarn. `npm install -g yarn`
-2. `yarn install`
-3. `yarn dev`
+### Description
 
-### Hosting
-
-1. `npm install -g firebase-tools`
-2. `firebase login`
-3. `yarn deploy`
-
-### Stuck?
-
-<details>
-<summary>
-Try This
-</summary>
-
-1. Navigate to: <https://console.firebase.google.com/> (make sure you are using the same account as you used for login)
-1. Open your project, and navigate to 'Project Overview > Project settings'
-1. Scroll down to 'Your apps' section and click on the web-app symbol (</>)
-1. Follow the prompts and in the 2nd step, copy down the `const firebaseConfig` section as you will need it soon
-1. Navigate to 'Build > Authentication', click 'Get started', and then follow the prompts to setup 'email/password' and 'Google' providers
-1. Navigate to 'Build > Firestore Database', click 'Create database', and select 'Start in test mode'
-1. Navigate to 'Build > Storage', click 'Get started', and select 'Start in test mode'
-1. In the root folder, **copy** `env.local.example` and rename to `env.local` and open it
-1. Enter the `authDomain`, `apiKey`, `projectId`, `storageBucket` into `env.local` to their respective variables
-1. `yarn dev`
-1. Once you can run locally, run `yarn deploy`
-
-</details>
-
-<!---
-*** WHEN YOU ARE UP AND RUNNING, DELETE EVERYTHING ABOVE ME EXCEPT THE VERY TOP LINE. ***
-*** RENAME THE TOP LINE WITH YOUR PROJECT NAME. ***
--->
+**Kulay** means 'colour' in Filipino (creative, I know). It's a colour palette generator tool that uses a naive colour quantisation tool to generate the average colours found in a website screenshot.
 
 ## Sprint Progress
 
@@ -47,42 +15,46 @@ Update your progress by checking off the tasks for each sprint. We will **not** 
 ### Sprint 1
 
 - [x] Get app approved (DM Scott for approval)
-  - [ ] Add project description to bottom of this page
+  - [x] Add project description to bottom of this page
 - [x] Create mockups (physical paper, low-fi)
   - [x] Attach mockups to bottom of this page
 - [x] Define scope (DM Scott for approval)
-  - [ ] Define milestones for each sprint
-  - [ ] Define final deliverable for v1
+  - [x] Define milestones for each sprint
+  - [x] Define final deliverable for v1
 - [ ] App must
-  - [ ] Be publicly accessible
-  - [ ] Have working authentication
+  - [x] Be publicly accessible
+  - [x] Have working authentication
   - [ ] Have technical component 5% done
 
 ### Sprint 2
 
+- [x] Re-evaluate milestones and features
 - [ ] Technical component 25%
-- [ ] Re-evaluate milestones and features
-- [ ] [*Fill me in with Sprint 2 milestones*]
-- [ ] [*Fill me in with Sprint 2 milestones*]
+  - [x] Evaluate usable APIs to generate screenshot
+  - [ ] Write basic colour quant util
+- [ ] Tick off todo's from Sprint 1
+  - [x] Must have working authentication
+  - [ ] Be publicly accessible (App must be deployable and deployed by the end of the week)
+- [ ] Complete UI for
+  - [ ] Landing Page
+  - [x] Login/Sign up page
 
 ### Sprint 3
 
 - [ ] Technical component 50%
 - [ ] Re-evaluate milestones and features
-- [ ] [*Fill me in with Sprint 3 milestones*]
-- [ ] [*Fill me in with Sprint 3 milestones*]
+- [ ] Complete UI for
+  - [ ] Generate palette from URL form
+  - [ ] Loading screen
+  - [ ] Page that shows generated palette
+- [ ] Deployment
+  - [ ] Automate deployment -> changes in `main` should trigger a deploy to Firebase
 
 ### Sprint 4
 
 - [ ] Technical component 100%
 - [ ] [*Fill me in with Sprint 4 milestones*]
 - [ ] [*Fill me in with Sprint 4 milestones*]
-
-## Project Overview
-
-### Description
-
-[*Replace me with overview of the project. Provide non-React.js technical components of this project*]
 
 ### Mockups
 
