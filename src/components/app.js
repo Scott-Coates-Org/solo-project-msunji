@@ -1,6 +1,6 @@
-import 'styles/globalStyles.css';
-import Layout from 'styles/layout';
-import Home from 'components/home';
+import GlobalStyle from 'styles/globalStyle';
+import Home from 'components/home/Home';
+import Generator from 'components/generator/Generator';
 import { AuthProvider, useAuth } from 'components/user/auth';
 import Login from 'components/user/login';
 import Logout from 'components/user/logout';
@@ -47,11 +47,13 @@ function App() {
   };
 
   const appElement = (
-    <Layout>
+    <>
+      <GlobalStyle />
       <ErrorBoundary>
         <AuthProvider onLogin={storeUserData}>
           <Router history={history}>
             <Switch>
+              <Route exact path="/" component={Home} {...props} />
               <Route
                 path="/login"
                 render={(routeProps) => (
@@ -66,12 +68,16 @@ function App() {
               />
 
               {/* this must be on the bottom */}
-              <ProtectedRoute path="/" component={Home} {...props} />
+              <ProtectedRoute
+                path="/generator"
+                component={Generator}
+                {...props}
+              />
             </Switch>
           </Router>
         </AuthProvider>
       </ErrorBoundary>
-    </Layout>
+    </>
   );
 
   return appElement;
