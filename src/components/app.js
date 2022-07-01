@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-import Home from 'components/home';
-=======
 import GlobalStyle from 'styles/globalStyle';
 import Home from 'components/home/Home';
 import Generator from 'components/generator/Generator';
->>>>>>> db353c9b53dd9a02c3c9cba9639d5643eb136195
 import { AuthProvider, useAuth } from 'components/user/auth';
 import Login from 'components/user/login';
 import Logout from 'components/user/logout';
@@ -51,31 +47,6 @@ function App() {
   };
 
   const appElement = (
-<<<<<<< HEAD
-    <ErrorBoundary>
-      <AuthProvider onLogin={storeUserData}>
-        <Router history={history}>
-          <Switch>
-            <Route
-              path="/login"
-              render={(routeProps) => (
-                <Login {...routeProps} {...props} firebase={firebase} />
-              )}
-            />
-            <Route
-              path="/logout"
-              render={(routeProps) => (
-                <Logout {...routeProps} {...props} firebase={firebase} />
-              )}
-            />
-
-            {/* this must be on the bottom */}
-            <ProtectedRoute path="/" component={Home} {...props} />
-          </Switch>
-        </Router>
-      </AuthProvider>
-    </ErrorBoundary>
-=======
     <>
       <GlobalStyle />
       <ErrorBoundary>
@@ -107,7 +78,6 @@ function App() {
         </AuthProvider>
       </ErrorBoundary>
     </>
->>>>>>> db353c9b53dd9a02c3c9cba9639d5643eb136195
   );
 
   return appElement;
