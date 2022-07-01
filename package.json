@@ -13,7 +13,6 @@
     "@reduxjs/toolkit": "^1.5.1",
     "firebase": "^8.3.3",
     "firebase-encode": "^0.0.5",
-    "grommet": "^2.24.0",
     "history": "^4.10.1",
     "react": "^17.0.0",
     "react-avatar": "^3.10.0",
