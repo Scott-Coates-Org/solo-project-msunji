@@ -19,4 +19,9 @@ export const FormInput = styled.input`
   border-radius: 6px;
   font-weight: bold;
   margin-bottom: 0.8rem;
+  &:focus {
+    outline: 0;
+    border-color: var(--blue);
+    box-shadow: 0 0 0 0.2rem #d9f4f5;
+  }
 `;
