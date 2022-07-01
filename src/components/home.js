@@ -56,7 +56,7 @@ export default function Home(props) {
   };
 
   return (
-    <div>Test</div>
+    <div>test</div>
     // <Layout {...props}>
     //   <nav className="d-flex flex-column align-items-center">
     //     <h1 className="my-3 text-center">My Project</h1>
