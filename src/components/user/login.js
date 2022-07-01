@@ -6,7 +6,7 @@ import LoginPattern from 'assets/images/Linth.svg';
 import { useForm } from 'react-hook-form';
 import { useAuth } from './auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { useEffect, useState } from 'react';
 import { StyledFirebaseAuth } from 'react-firebaseui';
 
@@ -42,6 +42,7 @@ const FormDivider = styled.div`
   text-transform: uppercase;
   font-size: 0.9rem;
   margin: 0.8rem 0;
+
   p {
     display: flex;
     align-items: center;
@@ -66,8 +67,6 @@ const FormDivider = styled.div`
       margin-left: 1rem;
     }
   }
-
-
 `;
 
 const componentLoginFroms = {
@@ -92,7 +91,6 @@ export default function Login(props) {
   }, [user, props.history]);
 
   const retVal = (
-    /* todo - wrap in layout container */
     <LoginFormContainer>
       <div className="login-pattern" />
       <div className="login-form">
@@ -152,13 +150,6 @@ function LoginForm(props) {
     const googleProvider = new firebase.auth.GoogleAuthProvider();
     return handleLogin(googleProvider);
   };
-
-  const handleFacebookLogin = (e) => {
-    e.preventDefault();
-    const facebookProvider = new firebase.auth.FacebookAuthProvider();
-    return handleLogin(facebookProvider);
-  };
-
   const handleEmailLogin = (e) => {
     e.preventDefault();
     setForm('email');
@@ -187,7 +178,7 @@ function LoginForm(props) {
             id="email"
             {...register('email', { required: 'A valid email is required.' })}
           ></FormInput>
-          <Button type="default" onClick={handleEmailLogin}>
+          <Button type="default" handleOnClick={handleEmailLogin}>
             Sign In
           </Button>
         </FormGroup>
@@ -195,7 +186,7 @@ function LoginForm(props) {
           <p>Or</p>
         </FormDivider>
         <div>
-          <Button type="brand" onClick={handleGoogleLogin}>
+          <Button type="brand" handleOnClick={handleGoogleLogin}>
             <FontAwesomeIcon icon={faGoogle} className="mr-lg-1" />
             Continue with Google
           </Button>
