@@ -1,4 +1,4 @@
-import themeColours from './themeColours';
+import theme from './theme';
 import { createGlobalStyle } from 'styled-components';
 
 import reset from 'styled-reset';
@@ -7,17 +7,24 @@ const GlobalStyle = createGlobalStyle`
   ${reset}
 
   :root {
-    --mustard: ${themeColours.mustard};
-    --black:  ${themeColours.black};
-    --blue: ${themeColours.blue};
-    --blue-grey-light:  ${themeColours.blueGreyLight};
-    --blue-dark:  ${themeColours.blueDark};
-    --grey:  ${themeColours.grey};
+    --mustard: ${theme.colors.mustard};
+    --black:  ${theme.colors.black};
+    --blue: ${theme.colors.blue};
+    --blue-grey-light:  ${theme.colors.blueGreyLight};
+    --blue-dark:  ${theme.colors.blueDark};
+    --grey:  ${theme.colors.grey};
   }
-
   * {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+  *,
+  *:before,
+  *:after {
+      box-sizing: border-box;
+  }
+  html, body {
+    overflow-x: hidden;
   }
   body {
     margin: 0;
