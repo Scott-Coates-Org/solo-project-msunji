@@ -1,4 +1,3 @@
-import { Grommet } from 'grommet';
 import Home from 'components/home';
 import { AuthProvider, useAuth } from 'components/user/auth';
 import Login from 'components/user/login';
@@ -57,31 +56,29 @@ function App() {
   };
 
   const appElement = (
-    <Grommet theme={theme}>
-      <ErrorBoundary>
-        <AuthProvider onLogin={storeUserData}>
-          <Router history={history}>
-            <Switch>
-              <Route
-                path="/login"
-                render={(routeProps) => (
-                  <Login {...routeProps} {...props} firebase={firebase} />
-                )}
-              />
-              <Route
-                path="/logout"
-                render={(routeProps) => (
-                  <Logout {...routeProps} {...props} firebase={firebase} />
-                )}
-              />
+    <ErrorBoundary>
+      <AuthProvider onLogin={storeUserData}>
+        <Router history={history}>
+          <Switch>
+            <Route
+              path="/login"
+              render={(routeProps) => (
+                <Login {...routeProps} {...props} firebase={firebase} />
+              )}
+            />
+            <Route
+              path="/logout"
+              render={(routeProps) => (
+                <Logout {...routeProps} {...props} firebase={firebase} />
+              )}
+            />
 
-              {/* this must be on the bottom */}
-              <ProtectedRoute path="/" component={Home} {...props} />
-            </Switch>
-          </Router>
-        </AuthProvider>
-      </ErrorBoundary>
-    </Grommet>
+            {/* this must be on the bottom */}
+            <ProtectedRoute path="/" component={Home} {...props} />
+          </Switch>
+        </Router>
+      </AuthProvider>
+    </ErrorBoundary>
   );
 
   return appElement;
