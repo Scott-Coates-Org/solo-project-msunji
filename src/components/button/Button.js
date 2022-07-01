@@ -1,21 +1,28 @@
-import themeColours from 'styles/themeColours';
+import theme from 'styles/theme';
 import styled from 'styled-components';
 
 const buttonColours = {
-  default: themeColours.blueDark,
-  brand: themeColours.blue,
+  default: theme.colors.blueDark,
+  brand: theme.colors.blue,
+  orange: theme.colors.orange,
 };
 
 const buttonTextColours = {
-  default: themeColours.white,
-  brand: themeColours.black,
+  default: theme.colors.white,
+  brand: theme.colors.black,
+  orange: theme.colors.black,
+};
+
+const buttonSizes = {
+  auto: 'auto',
+  full: '100%',
 };
 
 const StyledButton = styled.button`
   border: none;
-  border-radius: 6px;
-  padding: 0.6rem 0.8rem;
-  width: 100%;
+  border-radius: 2rem;
+  padding: 0.6rem 2rem;
+  width: ${({ size }) => buttonSizes[size]};
   display: flex;
   justify-content: center;
   background-color: ${({ type }) => buttonColours[type]};
