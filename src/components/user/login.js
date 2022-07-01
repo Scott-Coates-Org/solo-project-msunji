@@ -49,7 +49,7 @@ const FormDivider = styled.div`
     color: var(--grey);
     &:before {
       content: '';
-      background:var(--grey);
+      background: var(--grey);
       height: 1px;
       top: 50%;
       left: 0;
@@ -84,7 +84,7 @@ export default function Login(props) {
   // if user exists, redirect to home
   useEffect(() => {
     if (user) {
-      const returnTo = props.location.state?.appState?.returnTo || '/';
+      const returnTo = props.location.state?.appState?.returnTo || '/generator';
 
       props.history.replace(returnTo);
     }
@@ -98,7 +98,6 @@ export default function Login(props) {
           <h1>Hello!</h1>
           <p>Get started by signing in with an existing account.</p>
         </div>
-
         <Component {...props} setForm={setForm} />
       </div>
     </LoginFormContainer>
@@ -171,15 +170,8 @@ function LoginForm(props) {
     <>
       <form>
         <FormGroup fullWidth>
-          <FormLabel htmlFor="email">Email Address</FormLabel>
-          <FormInput
-            type="email"
-            placeholder="Your Email"
-            id="email"
-            {...register('email', { required: 'A valid email is required.' })}
-          ></FormInput>
           <Button type="default" handleOnClick={handleEmailLogin}>
-            Sign In
+            Sign in with Email
           </Button>
         </FormGroup>
         <FormDivider>
@@ -206,7 +198,7 @@ function EmailLogin(props) {
     // Popup signin flow rather than redirect flow.
     signInFlow: 'popup',
     // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
-    signInSuccessUrl: props.location.state?.appState.returnTo || '/',
+    signInSuccessUrl: props.location.state?.appState.returnTo || '/generator',
     // We will display Google and Facebook as auth providers.
     signInOptions: [firebase.auth.EmailAuthProvider.PROVIDER_ID],
   };
