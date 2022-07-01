@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 import Home from 'components/home';
+=======
+import GlobalStyle from 'styles/globalStyle';
+import Home from 'components/home/Home';
+import Generator from 'components/generator/Generator';
+>>>>>>> db353c9b53dd9a02c3c9cba9639d5643eb136195
 import { AuthProvider, useAuth } from 'components/user/auth';
 import Login from 'components/user/login';
 import Logout from 'components/user/logout';
@@ -44,18 +50,8 @@ function App() {
     dispatch(getDataSuccess(userData));
   };
 
-  const theme = {
-    global: {
-      font: {
-        family: 'Roboto',
-        size: '18px',
-        height: '20px',
-        color: 'red',
-      },
-    },
-  };
-
   const appElement = (
+<<<<<<< HEAD
     <ErrorBoundary>
       <AuthProvider onLogin={storeUserData}>
         <Router history={history}>
@@ -79,6 +75,39 @@ function App() {
         </Router>
       </AuthProvider>
     </ErrorBoundary>
+=======
+    <>
+      <GlobalStyle />
+      <ErrorBoundary>
+        <AuthProvider onLogin={storeUserData}>
+          <Router history={history}>
+            <Switch>
+              <Route exact path="/" component={Home} {...props} />
+              <Route
+                path="/login"
+                render={(routeProps) => (
+                  <Login {...routeProps} {...props} firebase={firebase} />
+                )}
+              />
+              <Route
+                path="/logout"
+                render={(routeProps) => (
+                  <Logout {...routeProps} {...props} firebase={firebase} />
+                )}
+              />
+
+              {/* this must be on the bottom */}
+              <ProtectedRoute
+                path="/generator"
+                component={Generator}
+                {...props}
+              />
+            </Switch>
+          </Router>
+        </AuthProvider>
+      </ErrorBoundary>
+    </>
+>>>>>>> db353c9b53dd9a02c3c9cba9639d5643eb136195
   );
 
   return appElement;
