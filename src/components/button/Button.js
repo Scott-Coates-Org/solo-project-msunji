@@ -10,19 +10,25 @@ const buttonColours = {
 const buttonTextColours = {
   default: theme.colors.white,
   brand: theme.colors.black,
-  orange: theme.colors.black,
+  orange: theme.colors.white,
 };
 
-const buttonSizes = {
+const buttonWidth = {
   auto: 'auto',
   full: '100%',
 };
 
+const buttonSizes = {
+  normal: '1rem',
+  lg: '1.6rem',
+};
+
 const StyledButton = styled.button`
   border: none;
-  border-radius: 2rem;
+  border-radius: 100px;
   padding: 0.6rem 2rem;
-  width: ${({ size }) => buttonSizes[size]};
+  font-size: ${({ size }) => buttonSizes[size]};
+  width: ${({ width }) => buttonWidth[width]};
   display: flex;
   justify-content: center;
   background-color: ${({ type }) => buttonColours[type]};
@@ -36,9 +42,9 @@ const StyledButton = styled.button`
   }
 `;
 
-const Button = ({ type, children, handleOnClick, size }) => {
+const Button = ({ type, children, handleOnClick, size, width }) => {
   return (
-    <StyledButton type={type} onClick={handleOnClick} size={size}>
+    <StyledButton type={type} onClick={handleOnClick} width={width} size={size}>
       {children}
     </StyledButton>
   );
