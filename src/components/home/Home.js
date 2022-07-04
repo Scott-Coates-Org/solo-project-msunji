@@ -23,6 +23,10 @@ const HomeContainer = styled.div`
   }
 `;
 
+const HomeButton = styled(Button)`
+  font-size: 1.7rem;
+`;
+
 const Home = () => {
   return (
     <StyledHome>
@@ -35,9 +39,9 @@ const Home = () => {
             dominant colours on a website.
           </p>
           <Link to="/generator">
-            <Button type="orange" size="auto" shape="pill">
+            <HomeButton type="orange" width="auto" shape="pill" size="lg">
               Get Started
-            </Button>
+            </HomeButton>
           </Link>
         </div>
       </HomeContainer>
