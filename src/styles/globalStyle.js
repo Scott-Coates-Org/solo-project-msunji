@@ -69,6 +69,9 @@ const GlobalStyle = createGlobalStyle`
     padding-top: 0.500em;
     margin-bottom: 1.13em;
   }
+  a, a:visited {
+    text-decoration: none;
+  }
 
 `;
 
