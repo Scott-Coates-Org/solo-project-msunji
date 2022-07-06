@@ -1,8 +1,7 @@
-import breakpoints from 'styles/breakpoints';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { FormGroup, FormLabel, FormInput } from 'components/form/Form';
 import Button from 'components/button/Button';
-import LoginPattern from 'assets/images/Linth.svg';
 import { useForm } from 'react-hook-form';
 import { useAuth } from './auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,38 +9,10 @@ import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { useEffect, useState } from 'react';
 import { StyledFirebaseAuth } from 'react-firebaseui';
 
-const LoginFormContainer = styled.div`
-  height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 200px auto;
-
-  .login-pattern {
-    background: var(--mustard);
-    background-image: url(${LoginPattern});
-    background-size: cover;
-  }
-  .login-form {
-    background-color: var(--white);
-    width: 80%;
-    max-width: 400px;
-    margin: auto;
-
-    &__text {
-      margin-bottom: 3rem;
-    }
-  }
-
-  @media screen and (min-width: ${breakpoints.sm}) {
-    grid-template-columns: 2fr 3fr;
-    grid-template-rows: 1fr;
-  }
-`;
-
 const FormDivider = styled.div`
   text-transform: uppercase;
   font-size: 0.9rem;
-  margin: 0.8rem 0;
+  margin: 1.4rem 0;
 
   p {
     display: flex;
@@ -91,16 +62,19 @@ export default function Login(props) {
   }, [user, props.history]);
 
   const retVal = (
-    <LoginFormContainer>
+    <>
       <div className="login-pattern" />
       <div className="login-form">
         <div className="login-form__text">
           <h1>Hello!</h1>
-          <p>Get started by signing in with an existing account.</p>
+          <p>
+            Get started by signing in with an existing account, or{' '}
+            <Link to="/">go back home.</Link>
+          </p>
         </div>
         <Component {...props} setForm={setForm} />
       </div>
-    </LoginFormContainer>
+    </>
   );
 
   return retVal;
@@ -154,23 +128,16 @@ function LoginForm(props) {
     setForm('email');
   };
 
-  const terms = (
-    <a href="#" target="_blank">
-      Terms of Service
-    </a>
-  );
-
-  const privacy = (
-    <a href="#" target="_blank">
-      Privacy Policy
-    </a>
-  );
-
   const retVal = (
     <>
       <form>
         <FormGroup fullWidth>
-          <Button type="default" handleOnClick={handleEmailLogin}>
+          <Button
+            type="default"
+            handleOnClick={handleEmailLogin}
+            width="full"
+            size="normal"
+          >
             Sign in with Email
           </Button>
         </FormGroup>
@@ -178,7 +145,12 @@ function LoginForm(props) {
           <p>Or</p>
         </FormDivider>
         <div>
-          <Button type="brand" handleOnClick={handleGoogleLogin}>
+          <Button
+            type="brand"
+            handleOnClick={handleGoogleLogin}
+            width="full"
+            size="normal"
+          >
             <FontAwesomeIcon icon={faGoogle} className="mr-lg-1" />
             Continue with Google
           </Button>
