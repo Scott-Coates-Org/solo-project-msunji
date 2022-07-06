@@ -2,17 +2,11 @@ import theme from 'styles/theme';
 import styled from 'styled-components';
 
 const buttonColours = {
-  default: theme.colors.blueDark,
+  default: theme.colors.mustard,
   brand: theme.colors.blue,
   orange: theme.colors.orange,
+  outline: 'transparent',
 };
-
-const buttonTextColours = {
-  default: theme.colors.white,
-  brand: theme.colors.black,
-  orange: theme.colors.white,
-};
-
 const buttonWidth = {
   auto: 'auto',
   full: '100%',
@@ -20,12 +14,12 @@ const buttonWidth = {
 
 const buttonSizes = {
   normal: '1rem',
-  lg: '1.6rem',
+  lg: '1.4rem',
 };
 
 const StyledButton = styled.button`
-  border: none;
-  border-radius: 100px;
+  border: 4px solid var(--black);
+  color: var(--black);
   padding: 0.6rem 2rem;
   font-size: ${({ size }) => buttonSizes[size]};
   width: ${({ width }) => buttonWidth[width]};
@@ -33,12 +27,15 @@ const StyledButton = styled.button`
   justify-content: center;
   background-color: ${({ type }) => buttonColours[type]};
   font-weight: bold;
-  color: ${({ type }) => buttonTextColours[type]};
+  box-shadow: 0.4rem 0.4rem var(--black);
   svg {
     margin-right: 5px;
   }
   &:hover {
     cursor: pointer;
+    background-color: var(--black);
+    color: ${({ type }) => buttonColours[type]};
+    box-shadow: 0.4rem 0.4rem ${({ type }) => buttonColours[type]};
   }
 `;
 
