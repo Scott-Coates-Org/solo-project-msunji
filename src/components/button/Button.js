@@ -5,7 +5,6 @@ const buttonColours = {
   default: theme.colors.mustard,
   brand: theme.colors.blue,
   orange: theme.colors.orange,
-  outline: 'transparent',
 };
 const buttonWidth = {
   auto: 'auto',
