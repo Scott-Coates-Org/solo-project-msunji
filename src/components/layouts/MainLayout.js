@@ -1,7 +1,8 @@
+import Navbar from 'components/navbar/Navbar';
 const MainLayout = ({ children }) => {
   return (
     <>
-      <nav></nav>
+      <Navbar />
       <main>{children}</main>
     </>
   );
