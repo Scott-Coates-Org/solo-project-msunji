@@ -6,11 +6,9 @@
 
 ### Description
 
-**Kulay** means 'colour' in Filipino (creative, I know). It's a colour palette generator tool that uses a naive colour quantisation method to generate a colour palette from the dominant colours found in a website screenshot.
+**Kulay** means 'colour' in Filipino (creative, I know). It's a colour palette generator tool that uses a median cut algorithm to generate colour palettes out of website screenshots.
 
 ## Sprint Progress
-
-Update your progress by checking off the tasks for each sprint. We will **not** be using issues for solo projects.
 
 ### Sprint 1
 
@@ -24,7 +22,7 @@ Update your progress by checking off the tasks for each sprint. We will **not** 
 - [ ] App must
   - [x] Be publicly accessible
   - [x] Have working authentication
-  - [ ] Have technical component 5% done
+  - [x] Have technical component 5% done
 
 ### Sprint 2
 
@@ -32,29 +30,36 @@ Update your progress by checking off the tasks for each sprint. We will **not** 
 - [ ] Technical component 25%
   - [x] Evaluate usable APIs to generate screenshot
   - [ ] Write basic colour quant util
-- [ ] Tick off todo's from Sprint 1
+- [x] Tick off todo's from Sprint 1
   - [x] Must have working authentication
-  - [ ] Be publicly accessible (App must be deployable and deployed by the end of the week)
-- [ ] Complete UI for
-  - [ ] Landing Page
+- [x] Complete UI for
+  - [x] Landing Page
   - [x] Login/Sign up page
 
 ### Sprint 3
 
 - [ ] Technical component 50%
-- [ ] Re-evaluate milestones and features
-- [ ] Complete UI for
-  - [ ] Generate palette from URL form
-  - [ ] Loading screen
-  - [ ] Page that shows generated palette
+  - [ ] Break process into smaller parts
+    - [x] Parse URL into image data
+    - [x] Generate RGB values array
+    - [ ] Run median cut algorithm
+  - [ ] Integrate screenshot API by week-end
+- [x] Re-evaluate milestones and features
+- [ ] Organise project directory
 - [ ] Deployment
   - [ ] Automate deployment -> changes in `main` should trigger a deploy to Firebase
 
 ### Sprint 4
 
 - [ ] Technical component 100%
-- [ ] [*Fill me in with Sprint 4 milestones*]
-- [ ] [*Fill me in with Sprint 4 milestones*]
+- [ ] Complete UI for
+  - [ ] Generated palette page
+  - [ ] Loading screen
+  - [ ] Generator page (with form)
+- [ ] Test generator
+- [ ] UI adjustments
+  - [ ] Make sure routes work
+  - [ ] Make sure things are responsive
 
 ### Mockups
 
