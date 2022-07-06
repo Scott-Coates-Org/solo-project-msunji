@@ -4,6 +4,8 @@ import { keyframes } from 'styled-components';
 
 const StyledShapes = styled.div`
   position: relative;
+  width: inherit;
+  height: 100%;
 `;
 const float = keyframes`
   0% {
@@ -25,29 +27,29 @@ const Circle = styled.div`
   width: 27rem;
   height: 27rem;
   border-radius: 50%;
-  filter: blur(3.5rem);
+  filter: blur(6rem);
   mix-blend-mode: multiply;
   opacity: 0.65;
   animation: ${float} 9s infinite;
 `;
 
-const YellowCircle = styled(Circle)`
-  top: -6rem;
-  right: 8rem;
-  background-color: ${theme.colors.satin};
+const SatinCircle = styled(Circle)`
+  top: -30rem;
+  left: 7rem;
+  background-color: ${theme.colors.magenta};
 `;
 
 const BlueCircle = styled(Circle)`
-  bottom: -30rem;
-  left: 10rem;
+  bottom: -15rem;
+  left: 5rem;
   background-color: ${theme.colors.blue};
   animation-delay: 2s;
 `;
 
-const SatinCircle = styled(Circle)`
-  top: -4rem;
-  left: -3rem;
-  background-color: ${theme.colors.mustard};
+const YellowCircle = styled(Circle)`
+  top: -30rem;
+  left: -20rem;
+  background-color: #fdff59;
   animation-delay: 4s;
 `;
 
