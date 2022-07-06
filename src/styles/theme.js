@@ -9,6 +9,7 @@ const theme = {
     grey: '#848d93',
     orange: '#F26419',
     satin: '#CE6A85',
+    magenta: '#e72fa9',
   },
   breakpoints: {
     sm: '700px',
