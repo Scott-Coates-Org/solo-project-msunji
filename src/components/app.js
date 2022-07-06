@@ -1,6 +1,8 @@
 import GlobalStyle from 'styles/globalStyle';
 import Home from 'components/home/Home';
 import Generator from 'components/generator/Generator';
+import AuthLayout from './layouts/AuthLayout';
+import MainLayout from './layouts/MainLayout';
 import { AuthProvider, useAuth } from 'components/user/auth';
 import Login from 'components/user/login';
 import Logout from 'components/user/logout';
@@ -53,13 +55,22 @@ function App() {
         <AuthProvider onLogin={storeUserData}>
           <Router history={history}>
             <Switch>
-              <Route exact path="/" component={Home} {...props} />
-              <Route
-                path="/login"
-                render={(routeProps) => (
-                  <Login {...routeProps} {...props} firebase={firebase} />
-                )}
-              />
+              <Route exact path="/">
+                <MainLayout>
+                  <Route exact path="/" component={Home} {...props} />
+                </MainLayout>
+              </Route>
+
+              <Route path="/login">
+                <AuthLayout>
+                  <Route
+                    path="/login"
+                    render={(routeProps) => (
+                      <Login {...routeProps} {...props} firebase={firebase} />
+                    )}
+                  />
+                </AuthLayout>
+              </Route>
               <Route
                 path="/logout"
                 render={(routeProps) => (
