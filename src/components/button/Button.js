@@ -22,13 +22,11 @@ const StyledButton = styled.button`
   padding: 0.6rem 2rem;
   font-size: ${({ size }) => buttonSizes[size]};
   width: ${({ width }) => buttonWidth[width]};
-  display: flex;
-  justify-content: center;
   background-color: ${({ type }) => buttonColours[type]};
   font-weight: bold;
   box-shadow: 0.4rem 0.4rem var(--black);
   svg {
-    margin-right: 5px;
+    margin-right: 10px;
   }
   &:hover {
     cursor: pointer;
