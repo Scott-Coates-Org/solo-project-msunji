@@ -1,7 +1,11 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const StyledNav = styled.nav`
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 20;
   background: white;
   width: 100%;
   border-bottom: 1px solid var(--black);
@@ -40,7 +44,7 @@ const Navbar = ({ children }) => {
     <StyledNav>
       <div className="nav-container">
         <div>logo</div>
-        <div classNames="nav-links">
+        <div className="nav-links">
           <div className="nav-link">
             <Link to="/login">Login/Signup</Link>
           </div>
