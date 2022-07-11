@@ -3,7 +3,7 @@ import MainLayout from 'components/layouts/MainLayout';
 import Container from 'components/container/Container';
 
 const parseToRGB = (dataArr) => {
-  // getImageData returns an array of RGBA values. We want to remove alpha values
+  // getImageData returns an array of RGBA values for each pixel in the image. We want to remove alpha values
   // This function makes a new array that consists of only RGB values
   let rgbVals = [];
   for (let i = 0; i < dataArr.length; i += 4) {
@@ -18,14 +18,16 @@ const parseToRGB = (dataArr) => {
 };
 
 const getRange = (dataArr) => {
-  // Get the upper- and lower-bounds for each channel
-  // Calculate lower bounds;
+  // You'll need to sort the pixels by the channel with the largest range
+
+  // First, get the upper- and lower-bounds for each channel
+  // Calculate lower bounds
   const getMin = (dataArr, channel) => {
     return dataArr.reduce((acc, pixel) => {
       return acc < pixel[channel] ? acc : pixel[channel];
     });
   };
-  // Calculate upper bounds;
+  // Calculate upper bounds
   const getMax = (dataArr, channel) => {
     return dataArr.reduce((acc, pixel) => {
       return acc > pixel[channel] ? acc : pixel[channel];
@@ -53,6 +55,16 @@ const getRange = (dataArr) => {
   const bRange = bMax - bMin;
 
   console.log(rRange, gRange, bRange);
+  let largestRange = Math.max(rRange, gRange, bRange);
+
+  // Math.max will return a numerical value, so we'll compare this with the range values above
+  if (largestRange === rRange) {
+    return 'r';
+  } else if (largestRange === gRange) {
+    return 'g';
+  } else {
+    return 'b';
+  }
 };
 
 const parseURLtoImg = ({ url }) => {
@@ -90,6 +102,7 @@ const Generator = () => {
     console.log('moto data', imgData);
     let imgDataChannels = parseToRGB(imgData);
     getRange(imgDataChannels);
+    console.log(getRange(imgDataChannels));
   };
   const onSubmit = (data) => loadData(data);
   return (
