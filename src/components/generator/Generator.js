@@ -14,7 +14,7 @@ const StyledPalette = styled.div`
 `;
 
 const StyledPaletteCell = styled.div`
-  background-color: ${({ $hexcolor }) => $hexcolor};
+  background-color: ${({ $rgbcolor }) => $rgbcolor};
 `;
 
 const Generator = () => {
@@ -38,7 +38,8 @@ const Generator = () => {
   //   setLoaded(true);
   // }
 
-  console.log(palette);
+  const uniqueColours = [...new Map(palette.map(colour => [colour['rgbStr'], colour])).values()];
+
   return (
     <MainLayout>
       <Container>
@@ -51,8 +52,8 @@ const Generator = () => {
           'Loading'
         ) : (
           <StyledPalette>
-            {palette.map(({ rgbStr, hex }) => (
-              <StyledPaletteCell key={hex} $hexcolor={`${hex}`}>
+            {uniqueColours.map(({ rgbStr, hex }) => (
+              <StyledPaletteCell key={hex} $rgbcolor={`${rgbStr}`}>
                 <p>{rgbStr}</p>
                 <p>{hex}</p>
               </StyledPaletteCell>
