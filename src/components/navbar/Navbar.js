@@ -2,9 +2,6 @@ import styled from 'styled-components';
 import { Link, useLocation } from 'react-router-dom';
 
 const StyledNav = styled.nav`
-  position: absolute;
-  left: 0;
-  top: 0;
   z-index: 20;
   background: white;
   width: 100%;
