@@ -4,6 +4,15 @@ import parseURLtoImg from 'utils/colourquant';
 import { useForm } from 'react-hook-form';
 import MainLayout from 'components/layouts/MainLayout';
 import Container from 'components/container/Container';
+import { FormInput } from 'components/form/Form';
+import PropagateLoader from 'react-spinners/PropagateLoader';
+
+const FormContainer = styled.div`
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+`;
 
 const StyledPalette = styled.div`
   display: flex;
@@ -18,48 +27,53 @@ max-width: 200px;
 `;
 
 const Generator = () => {
+  const [palette, setPalette] = useState([]);
+  const [loading, setLoading] = useState(false);
+
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
-
   const loadData = async (data) => {
+    setLoading(true);
     const palette = await parseURLtoImg(data);
+    setLoading(false);
     setPalette(palette);
   };
   const onSubmit = (data) => loadData(data);
-  const [palette, setPalette] = useState([]);
-
-  // if (palette.length === 0) {
-  //   setLoaded(false);
-  // } else {
-  //   setLoaded(true);
-  // }
 
   const uniqueColours = [...new Map(palette.map(colour => [colour['rgbStr'], colour])).values()];
 
   return (
     <MainLayout>
       <Container>
-        <p>Test Generator</p>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <input {...register('url', { required: true })} />
-          <button type="submit">Submit</button>
-        </form>
-        {palette.length === 0 ? (
-          'Loading'
-        ) : (
-          <StyledPalette>
-            {uniqueColours.map(({ rgbStr, hex }) => (
-              <StyledPaletteCell key={hex} $rgbcolor={`${rgbStr}`}>
-                <p>{rgbStr}</p>
-                <p>{hex}</p>
-              </StyledPaletteCell>
-            ))}
-          </StyledPalette>
-        )}
+        <FormContainer>
+          <h2>Generate a Palette</h2>
+          <form onSubmit={handleSubmit(onSubmit)}>
+
+              <FormInput {...register('url', { required: true })} />
+              {}
+              <button type="submit">Submit</button>
+          </form>
+          {loading && (
+            <PropagateLoader
+              color="#f14a4a"
+              size={12}
+            />)}
+          <div>
+            <StyledPalette>
+              {uniqueColours.map(({ rgbStr, hex }) => (
+                <StyledPaletteCell key={hex} $rgbcolor={`${rgbStr}`}>
+                  <p>{rgbStr}</p>
+                  <p>{hex}</p>
+                </StyledPaletteCell>
+              ))}
+            </StyledPalette>
+          </div>
+        </FormContainer>
+
       </Container>
     </MainLayout>
   );
