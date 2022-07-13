@@ -6,14 +6,14 @@ import MainLayout from 'components/layouts/MainLayout';
 import Container from 'components/container/Container';
 
 const StyledPalette = styled.div`
-  display: grid;
-  width: 600px;
-  min-height: 200px;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
 `;
 
 const StyledPaletteCell = styled.div`
+flex: 1;
+max-width: 200px;
   background-color: ${({ $rgbcolor }) => $rgbcolor};
 `;
 
