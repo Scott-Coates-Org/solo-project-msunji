@@ -152,7 +152,12 @@ const parseURLtoImg = ({ url }) => {
 
       const rgbVals = parseToRGB(colourArr); // Parse RGB data and remove alpha values
       const colours = generatePalette(rgbVals, 3);
-      resolve(colours);
+      const uniqueColours = [
+        ...new Map(
+          colours.map((colour) => [colour['rgbStr'], colour])
+        ).values(),
+      ];
+      resolve(uniqueColours);
     };
   });
 };
