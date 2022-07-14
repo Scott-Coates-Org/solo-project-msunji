@@ -7,23 +7,66 @@ import Container from 'components/container/Container';
 import { FormInput } from 'components/form/Form';
 import PropagateLoader from 'react-spinners/PropagateLoader';
 
-const FormContainer = styled.div`
+const FormSection = styled.section`
   width: 100%;
-  height: auto;
-  display: flex;
-  flex-direction: column;
+  height: 100%;
+  background: var(--mustard);
+  padding: 3rem 0;
+
+  h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
 `;
 
-const StyledPalette = styled.div`
+const PaletteSection = styled.section`
+  width: 100%;
+  height: 100%;
+  padding: 3rem 0;
+`;
+
+const LoaderContainer = styled.div`
+  width: 100%;
+  height: 100%;
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
+  justify-content: center;
+  padding: 3rem;
+`;
+
+const StyledPalette = styled.ul`
+  max-width: 30rem;
+  margin: 0 auto;
+  border: 1px solid grey;
+  border-radius: 1.2rem;
+
+  .list-item {
+    height: auto;
+    display: flex;
+
+    &__colour-vals {
+      padding: 1rem 0 1rem 2rem;
+      flex: 2;
+      flex-grow: 2;
+      border-bottom: 1px solid grey;
+
+      &:last-of-type {
+        border: 0;
+      }
+
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
 `;
 
 const StyledPaletteCell = styled.div`
-flex: 1;
-max-width: 200px;
+  flex: 1;
   background-color: ${({ $rgbcolor }) => $rgbcolor};
+
+  &:last-of-type {
+    border-bottom-left-radius: 2rem;
+  }
 `;
 
 const Generator = () => {
@@ -36,6 +79,7 @@ const Generator = () => {
     watch,
     formState: { errors },
   } = useForm();
+
   const loadData = async (data) => {
     setLoading(true);
     const palette = await parseURLtoImg(data);
@@ -44,37 +88,45 @@ const Generator = () => {
   };
   const onSubmit = (data) => loadData(data);
 
-  const uniqueColours = [...new Map(palette.map(colour => [colour['rgbStr'], colour])).values()];
-
   return (
     <MainLayout>
-      <Container>
-        <FormContainer>
-          <h2>Generate a Palette</h2>
+      <FormSection>
+        <Container>
+          <h1>Generate a Palette</h1>
           <form onSubmit={handleSubmit(onSubmit)}>
-
-              <FormInput {...register('url', { required: true })} />
-              {}
-              <button type="submit">Submit</button>
+            <FormInput {...register('url', { required: true })} />
+            {}
+            <button type="submit">Submit</button>
           </form>
+        </Container>
+      </FormSection>
+      <PaletteSection>
+        <Container>
           {loading && (
-            <PropagateLoader
-              color="#f14a4a"
-              size={12}
-            />)}
+            <LoaderContainer>
+              <PropagateLoader color="#f14a4a" size={12} />
+            </LoaderContainer>
+          )}
           <div>
-            <StyledPalette>
-              {uniqueColours.map(({ rgbStr, hex }) => (
-                <StyledPaletteCell key={hex} $rgbcolor={`${rgbStr}`}>
-                  <p>{rgbStr}</p>
-                  <p>{hex}</p>
-                </StyledPaletteCell>
-              ))}
-            </StyledPalette>
+            {!loading && (
+              <StyledPalette>
+                {palette.map(({ rgbStr, hex }) => (
+                  <div className="list-item" key={hex}>
+                    <StyledPaletteCell
+                      key={hex}
+                      $rgbcolor={`${rgbStr}`}
+                    ></StyledPaletteCell>
+                    <div className="list-item__colour-vals">
+                      <p>{rgbStr}</p>
+                      <p>{hex}</p>
+                    </div>
+                  </div>
+                ))}
+              </StyledPalette>
+            )}
           </div>
-        </FormContainer>
-
-      </Container>
+        </Container>
+      </PaletteSection>
     </MainLayout>
   );
 };
