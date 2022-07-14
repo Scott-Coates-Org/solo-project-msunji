@@ -12,6 +12,7 @@ const theme = {
     magenta: '#e72fa9',
   },
   breakpoints: {
+    xs: '560px',
     sm: '700px',
   },
 };
