@@ -38,11 +38,11 @@
 
 ### Sprint 3
 
-- [ ] Technical component 50%
-  - [ ] Break process into smaller parts
+- [x] Technical component 50%
+  - [x] Break process into smaller parts
     - [x] Parse URL into image data
     - [x] Generate RGB values array
-    - [ ] Run median cut algorithm
+    - [x] Run median cut algorithm
   - [ ] Integrate screenshot API by week-end
 - [x] Re-evaluate milestones and features
 - [ ] Organise project directory
@@ -51,10 +51,10 @@
 
 ### Sprint 4
 
-- [ ] Technical component 100%
+- [x] Technical component 100%
 - [ ] Complete UI for
   - [ ] Generated palette page
-  - [ ] Loading screen
+  - [x] Loading screen
   - [ ] Generator page (with form)
 - [ ] Test generator
 - [ ] UI adjustments
