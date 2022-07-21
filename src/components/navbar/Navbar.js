@@ -1,6 +1,13 @@
 import styled from 'styled-components';
 import { Link, useLocation } from 'react-router-dom';
 
+const NavLogo = styled.span`
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: var(--sansSerif);
+  text-transform: lowercase;
+`;
+
 const StyledNav = styled.nav`
   z-index: 20;
   background: white;
@@ -40,7 +47,7 @@ const Navbar = ({ children }) => {
   return (
     <StyledNav>
       <div className="nav-container">
-        <div>logo</div>
+        <NavLogo><Link to="/">Kulay</Link></NavLogo>
         <div className="nav-links">
           <div className="nav-link">
             <Link to="/login">Login/Signup</Link>
