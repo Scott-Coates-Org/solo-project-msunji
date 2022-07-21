@@ -1,14 +1,6 @@
 import theme from 'styles/theme';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { FormGroup, FormLabel, FormInput } from 'components/form/Form';
-import Button from 'components/button/Button';
 import LoginPattern from 'assets/images/Linth.svg';
-import { useForm } from 'react-hook-form';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGoogle } from '@fortawesome/free-brands-svg-icons';
-import { useEffect, useState } from 'react';
-import { StyledFirebaseAuth } from 'react-firebaseui';
 
 const StyledAuth = styled.div`
   height: 100vh;

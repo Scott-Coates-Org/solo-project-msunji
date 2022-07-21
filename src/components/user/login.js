@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { FormGroup, FormLabel, FormInput } from 'components/form/Form';
+import { FormGroup } from 'components/form/Form';
 import Button from 'components/button/Button';
-import { useForm } from 'react-hook-form';
 import { useAuth } from './auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
@@ -81,11 +80,6 @@ export default function Login(props) {
 }
 
 function LoginForm(props) {
-  const {
-    handleSubmit,
-    formState: { errors },
-    register,
-  } = useForm();
   const { firebase, setForm } = props;
 
   // right now, the oauth form shows a firebae domain.

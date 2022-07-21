@@ -36,9 +36,9 @@ function App() {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getData());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getData());
+  // }, []);
 
   const storeUserData = (user) => {
     const providerData = user.providerData[0];

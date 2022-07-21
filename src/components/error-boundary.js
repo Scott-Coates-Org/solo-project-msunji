@@ -62,7 +62,7 @@ function HelpMessage(props) {
 const apiKeyFix = (
   <>
     <ol>
-      <li>Go to Firebase, ensure you've setup a project. That link is <a href="https://console.firebase.google.com/" target="_blank">https://console.firebase.google.com/</a>.
+      <li>Go to Firebase, ensure you've setup a project. That link is <a href="https://console.firebase.google.com/" target="_blank" rel="noreferrer">https://console.firebase.google.com/</a>.
         <ol>
           <li>Start by creating a web app. Skip the hosting option for now.
           <details style={{ whiteSpace: 'pre-wrap' }}>
@@ -78,7 +78,7 @@ const apiKeyFix = (
       <li>Make sure <pre style={{ "display": "inline" }}>env.local</pre> exists.
         <ol>
           <li>Do this by making a copy of <pre style={{ "display": "inline" }}>env.local.example</pre> and naming it <pre style={{ "display": "inline" }}>env.local</pre>.</li>
-          <li>Go to <a href="https://console.firebase.google.com/" target="_blank">https://console.firebase.google.com/</a> and fill in <pre style={{ "display": "inline" }}>env.local</pre> with the config values from firebase. Click Project Overview → Project Settings → Your Apps (bottom of page).</li>
+          <li>Go to <a href="https://console.firebase.google.com/" target="_blank" rel="noreferrer">https://console.firebase.google.com/</a> and fill in <pre style={{ "display": "inline" }}>env.local</pre> with the config values from firebase. Click Project Overview → Project Settings → Your Apps (bottom of page).</li>
           <li><strong>Restart the app</strong>.</li>
         </ol>
       </li>
