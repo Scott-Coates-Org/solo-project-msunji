@@ -8,6 +8,8 @@
 
 **Kulay** means 'colour' in Filipino (creative, I know). It's a colour palette generator tool that uses a median cut algorithm to generate colour palettes out of website screenshots.
 
+⭐️ See this in action: https://marge-solo-project.web.app/
+
 ## Sprint Progress
 
 ### Sprint 1
@@ -27,9 +29,9 @@
 ### Sprint 2
 
 - [x] Re-evaluate milestones and features
-- [ ] Technical component 25%
+- [x] Technical component 25%
   - [x] Evaluate usable APIs to generate screenshot
-  - [ ] Write basic colour quant util
+  - [x] Write basic colour quant util
 - [x] Tick off todo's from Sprint 1
   - [x] Must have working authentication
 - [x] Complete UI for
@@ -46,17 +48,16 @@
   - [ ] Integrate screenshot API by week-end
 - [x] Re-evaluate milestones and features
 - [ ] Organise project directory
-- [ ] Deployment
-  - [ ] Automate deployment -> changes in `main` should trigger a deploy to Firebase
+- [x] Deployment
 
 ### Sprint 4
 
 - [x] Technical component 100%
 - [ ] Complete UI for
-  - [ ] Generated palette page
+  - [x] Generated palette page
   - [x] Loading screen
   - [ ] Generator page (with form)
-- [ ] Test generator
+- [ ] Test generator - Make sure API calls work
 - [ ] UI adjustments
   - [ ] Make sure routes work
   - [ ] Make sure things are responsive
