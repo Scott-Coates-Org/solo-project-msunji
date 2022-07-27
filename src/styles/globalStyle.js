@@ -7,12 +7,16 @@ const GlobalStyle = createGlobalStyle`
   ${reset}
 
   :root {
+    --white: ${theme.colors.white};
     --mustard: ${theme.colors.mustard};
     --black:  ${theme.colors.black};
     --blue: ${theme.colors.blue};
     --blue-grey-light:  ${theme.colors.blueGreyLight};
     --blue-dark:  ${theme.colors.blueDark};
     --grey:  ${theme.colors.grey};
+    --orange: ${theme.colors.orange};
+    --satin: ${theme.colors.satin};
+    --magenta: ${theme.colors.magenta};
     --monotype: 'Anonymous Pro', monospace;
     --sansSerif: 'Archivo Black', sans-serif;
   }
@@ -33,7 +37,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: var(--monotype);
     height: 100vh;
     width: 100%;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.6;
     color: var(--black);
   }
