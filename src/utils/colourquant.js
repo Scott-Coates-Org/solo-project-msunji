@@ -130,7 +130,7 @@ const generatePalette = (dataArr, totalIterations) => {
 
 // Convert RGB to HEX values
 
-const parseURLtoImg = ({ url }) => {
+const parseURLtoImg = (url) => {
   // This function takes an image URL, draws it onto a canvas, and then
   // returns the RGBA data for each pixel in the image
   return new Promise((resolve, reject) => {
