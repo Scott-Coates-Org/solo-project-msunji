@@ -50,7 +50,6 @@ const LoaderContainer = styled.div`
 `;
 
 const Generator = () => {
-  const [apiData, setApiData] = useState({ url: '', isLoading: true });
   const [palette, setPalette] = useState([]);
 
   const {
@@ -58,14 +57,6 @@ const Generator = () => {
     handleSubmit,
     formState: { errors, isSubmitting, isSubmitted },
   } = useForm();
-
-
-
-  const loadData = async (data) => {
-    const swatches = await parseURLtoImg(data);
-    console.log('palette', swatches);
-    return swatches;
-  };
 
   const handleAPI = async (url) => {
     let endpoint = `${process.env.REACT_APP_APIFLASH_ENDPOINT}?access_key=${process.env.REACT_APP_APIFLASH_ACCESS_KEY}&url=${url}&format=jpeg&fresh=true&full_page=true&scroll_page=true&response_type=json&no_ads=true&wait_until=page_loaded&fail_on_status=400`;
@@ -80,9 +71,7 @@ const Generator = () => {
 
 
   const onSubmit = async (data) => {
-    // handleAPI(url);
     const screenshotUri = await handleAPI(data.url);
-    console.log('firing', screenshotUri);
     const swatches = await parseURLtoImg(screenshotUri);
     setPalette(swatches);
   }
