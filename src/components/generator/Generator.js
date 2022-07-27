@@ -49,7 +49,7 @@ const FormSection = styled.section`
         input {
           width: 100%;
           margin-bottom: 0;
-          padding: 0.89rem 0.75rem 0.89rem 0.75rem;
+          padding: 0.89rem;
         }
         button {
           position: absolute;
