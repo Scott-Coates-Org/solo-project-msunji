@@ -12,7 +12,7 @@ import PropagateLoader from 'react-spinners/PropagateLoader';
 
 const GeneratorText = styled.div`
   text-align: center;
-  margin: 0 auto;
+  margin-bottom: 2rem;
 
   p {
     max-width: 60ch;
@@ -24,14 +24,51 @@ const FormSection = styled.section`
   width: 100%;
   height: 100%;
   padding: 3rem 0;
+  
+  div:first-child {
+    h1 {
+      font-size: 2.5rem;
+      font-size: clamp(2.5rem, 0.625rem + 6vw, 4rem);
+      text-align: center;
+      color: var(--mustard);
+      background: linear-gradient(150deg, #9414c7, #f63a5c, #fff585);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-  h1 {
-    font-size: 4rem;
-    text-align: center;
-    color: var(--mustard);
-    background: linear-gradient(150deg, #9414c7, #f63a5c, #fff585);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    form {
+      display: flex;
+      justify-content: center;
+
+      .form-inputs {
+        position: relative;
+        width: 30rem;
+        display: flex;
+        align-items: center;
+
+        input {
+          width: 100%;
+          margin-bottom: 0;
+          padding: 0.89rem 0.75rem 0.89rem 0.75rem;
+        }
+        button {
+          position: absolute;
+          color: white;
+          text-transform: uppercase;
+          right: 8px;
+          outline: none;
+          border: none;
+          background: var(--blue-dark);
+          padding: 9px 20px;
+          border-radius: 4px;
+          cursor: pointer;
+
+          &:hover {
+            background: var(--blue)
+          }
+        }
+      }
+    }
   }
 `;
 
@@ -83,11 +120,11 @@ const Generator = () => {
             <h1>Generate a Palette</h1>
             <p>Using <b>Kulay</b> is pretty straightforward. Add a URL to the form shown below, hit submit, and wait for the magic to happen! ✨</p>
           </GeneratorText>
-
           <form onSubmit={handleSubmit(onSubmit)}>
-            <FormInput {...register('url', { required: true })} />
-            {}
-            <button type="submit">Submit</button>
+            <div className="form-inputs">
+              <FormInput {...register('url', { required: true })} />
+              <button type="submit">Submit</button>
+            </div>
           </form>
         </Container>
       </FormSection>
