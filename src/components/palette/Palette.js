@@ -18,11 +18,14 @@ const StyledPalette = styled.ul`
       overflow: hidden;
     }
 
+    &:last-child {
+      border-bottom: none;
+    }
+
     &__colour-vals {
       padding: 1.5rem 0 1.5rem 2rem;
       flex: 1;
       border-bottom: 1px solid var(--black);
-      border-style: inset;
 
       p {
         font-size: 1.11rem;
