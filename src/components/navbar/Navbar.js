@@ -1,5 +1,7 @@
+import { useContext } from 'react';
 import styled from 'styled-components';
 import { Link, useLocation } from 'react-router-dom';
+import { AuthContext } from 'components/user/auth';
 
 const NavLogo = styled.span`
   font-size: 2rem;
@@ -44,13 +46,16 @@ const StyledNav = styled.nav`
 `;
 
 const Navbar = ({ children }) => {
+  const { user } = useContext(AuthContext);
+  console.log('user', user);
+
   return (
     <StyledNav>
       <div className="nav-container">
         <NavLogo><Link to="/">Kulay</Link></NavLogo>
         <div className="nav-links">
           <div className="nav-link">
-            <Link to="/login">Login/Signup</Link>
+            {!!user ? (<Link to="/logout">Logout</Link>) : (<Link to="/login">Login/Signup</Link>)}
           </div>
         </div>
       </div>
